@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
+    <welcome-file-list>
+        <welcome-file>Start</welcome-file>
+    </welcome-file-list>
+    <servlet>
+        <servlet-name>UploadServlet</servlet-name>
+        <servlet-class>controllers.UploadServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>DownloadServlet</servlet-name>
+        <servlet-class>controllers.DownloadServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Start</servlet-name>
+        <servlet-class>controllers.Start</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>DeleteAFile</servlet-name>
+        <servlet-class>controllers.DeleteAFile</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>UploadServlet</servlet-name>
+        <url-pattern>/UploadServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DownloadServlet</servlet-name>
+        <url-pattern>/DownloadServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Start</servlet-name>
+        <url-pattern>/Start</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DeleteAFile</servlet-name>
+        <url-pattern>/DeleteAFile</url-pattern>
+    </servlet-mapping>
+    <multipart-config>
+        <max-file-size>104857600</max-file-size>
+        <max-request-size>209715200</max-request-size>
+        <file-size-threshold>5242880</file-size-threshold>
+    </multipart-config>
+    <error-page>
+        <!-- Missing resource -->
+        <error-code>404</error-code>
+        <location>/error404.jsp</location>
+    </error-page>
+    <error-page>
+        <!-- Uncaught exception -->
+        <error-code>500</error-code>
+        <location>/error500.jsp</location>
+    </error-page>
+    <session-config>
+        <session-timeout>
+            30
+        </session-timeout>
+    </session-config>
+</web-app>
